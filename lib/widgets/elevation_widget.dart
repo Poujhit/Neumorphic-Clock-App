@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 
 class ElevationWidget extends StatelessWidget {
@@ -16,7 +18,7 @@ class ElevationWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Center(
       child: Card(
-        elevation: 20,
+        elevation: 18,
         borderOnForeground: false,
         shadowColor: const Color(0xFFb9abab),
         shape: RoundedRectangleBorder(
@@ -30,13 +32,13 @@ class ElevationWidget extends StatelessWidget {
             boxShadow: [
               BoxShadow(
                 color: const Color(0xFF806a6a),
-                offset: Offset(15, 0),
+                offset: Offset(0, 10),
                 blurRadius: 34,
                 spreadRadius: 0,
               ),
               BoxShadow(
                 color: const Color(0xFFb9abab),
-                offset: Offset(-20, 0),
+                offset: Offset(0, -25),
                 blurRadius: 34,
                 spreadRadius: 0,
               ),
