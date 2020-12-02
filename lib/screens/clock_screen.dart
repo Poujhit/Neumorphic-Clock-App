@@ -99,20 +99,20 @@ class DrawClockHand extends CustomPainter {
       ..color = Color(0xFF806a6a)
       ..style = PaintingStyle.stroke
       ..strokeCap = StrokeCap.round
-      ..strokeWidth = 8;
+      ..strokeWidth = 7;
 
-    var secHandX = (size.width / 2) + 105 * cos(date.second * 6 * pi / 180);
-    var secHandY = (size.width / 2) + 105 * sin(date.second * 6 * pi / 180);
+    var secHandX = (size.width / 2) + 106 * cos(date.second * 6 * pi / 180);
+    var secHandY = (size.width / 2) + 106 * sin(date.second * 6 * pi / 180);
 
-    var minHandX = (size.width / 2) + 120 * cos(date.minute * 6 * pi / 180);
-    var minHandY = (size.width / 2) + 120 * sin(date.minute * 6 * pi / 180);
+    var minHandX = (size.width / 2) + 118 * cos(date.minute * 6 * pi / 180);
+    var minHandY = (size.width / 2) + 118 * sin(date.minute * 6 * pi / 180);
 
     var hourHandX = (size.width / 2) + 95 * cos((date.hour * 30 + date.minute * 0.5) * pi / 180);
     var hourHandY = (size.width / 2) + 95 * sin((date.hour * 30 + date.minute * 0.5) * pi / 180);
 
     canvas.drawLine(centerHour, Offset(hourHandX, hourHandY), hourHand);
-    canvas.drawLine(center, Offset(minHandX, minHandY), minHand);
     canvas.drawLine(center, Offset(secHandX, secHandY), secHand);
+    canvas.drawLine(center, Offset(minHandX, minHandY), minHand);
   }
 
   @override
