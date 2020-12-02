@@ -61,10 +61,13 @@ class _ClockScreenState extends State<ClockScreen> {
                 width: 150,
                 paint: SmallClockPainter(),
                 child: CustomPaint(
-                  painter: Hand(),
+                  painter: DrawClockHand(),
                 ),
               ),
             ),
+          ),
+          SizedBox(
+            height: 20,
           ),
         ],
       ),
@@ -72,7 +75,7 @@ class _ClockScreenState extends State<ClockScreen> {
   }
 }
 
-class Hand extends CustomPainter {
+class DrawClockHand extends CustomPainter {
   var date = DateTime.now();
 
   @override
@@ -92,6 +95,15 @@ class Hand extends CustomPainter {
       ..strokeCap = StrokeCap.round
       ..strokeWidth = 10;
 
+    var secHand = Paint()
+      ..color = Color(0xFF806a6a)
+      ..style = PaintingStyle.stroke
+      ..strokeCap = StrokeCap.round
+      ..strokeWidth = 8;
+
+    var secHandX = (size.width / 2) + 105 * cos(date.second * 6 * pi / 180);
+    var secHandY = (size.width / 2) + 105 * sin(date.second * 6 * pi / 180);
+
     var minHandX = (size.width / 2) + 120 * cos(date.minute * 6 * pi / 180);
     var minHandY = (size.width / 2) + 120 * sin(date.minute * 6 * pi / 180);
 
@@ -100,6 +112,7 @@ class Hand extends CustomPainter {
 
     canvas.drawLine(centerHour, Offset(hourHandX, hourHandY), hourHand);
     canvas.drawLine(center, Offset(minHandX, minHandY), minHand);
+    canvas.drawLine(center, Offset(secHandX, secHandY), secHand);
   }
 
   @override
