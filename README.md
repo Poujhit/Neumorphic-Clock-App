@@ -11,7 +11,7 @@ add upto 3 Alarms. **More Features Coming Soon**.
 
 <img src = "/screenshots/video.gif" width="420" height = "800"></img>
 
-
+ 
 ## How to Install
 
 To try this app go to [this Link]() to download the APK of the app. Choose the Appropriate
