@@ -9,7 +9,7 @@ add upto 3 Alarms. **More Features Coming Soon**.
 <img src = "/screenshots/choose_time.jpg" width="320" height = "800"></img>
 </p>
 
-<img src = "/screenshots/video.gif" width="420" height = "800"></img>
+<img align = "middle" src = "/screenshots/video.gif" width="420" height = "800"></img>
 
  
 ## How to Install
