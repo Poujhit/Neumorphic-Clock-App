@@ -1,8 +1,9 @@
+    #this will work only if all api keys are made into version control
 on: push
 name: build and test flutter app
 jobs:
   build:
-    name: Testing Build
+    name: Testing Build of Android
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
@@ -14,5 +15,3 @@ jobs:
         channel: 'dev'
     - run: flutter pub get
     - run: flutter build apk --split-per-abi
-
-    #this will work only if all api keys are made into version control
