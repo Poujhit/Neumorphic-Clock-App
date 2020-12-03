@@ -5,7 +5,7 @@ add upto 3 Alarms. **More Features Coming Soon**.
 
 ## App Design
 
-<img align= "center" src = "/scrrenshots/choose_time.jpg"></img>
+<img align= "center" src = "https://github.com/Poujhit/Neumorphic-Clock-App/blob/master/screenshots/choose_time.jpg"></img>
 
 This project is a starting point for a Flutter application.
 
