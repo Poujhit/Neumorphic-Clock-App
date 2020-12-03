@@ -5,11 +5,11 @@ add upto 3 Alarms. **More Features Coming Soon**.
 
 ## App Design
 <p align = "middle">
-<img src = "/screenshots/homescreen.jpg" width="320" height = "800"></img>
-<img src = "/screenshots/choose_time.jpg" width="320" height = "800"></img>
+<img src = "/screenshots/homescreen.jpg" width="320" height = "750"></img>
+<img src = "/screenshots/choose_time.jpg" width="320" height = "750"></img>
 </p>
 <p align = "middle">
-<img src = "/screenshots/video.gif" width="420" height = "800"></img>
+<img src = "/screenshots/video.gif" width="380" height = "750"></img>
 </p>
  
 ## How to Install
