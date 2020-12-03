@@ -3,6 +3,7 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:bordered_text/bordered_text.dart';
+import 'package:neumorphic_clock_app/widgets/alarm_tile.dart';
 import 'package:neumorphic_clock_app/widgets/elevation_widget.dart';
 
 class ClockScreen extends StatefulWidget {
@@ -23,53 +24,58 @@ class _ClockScreenState extends State<ClockScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Color(0xFFb9abab),
-      body: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          SizedBox(
-            height: MediaQuery.of(context).padding.top + 25,
-          ),
-          Container(
-            margin: const EdgeInsets.only(
-              left: 29,
+      body: SingleChildScrollView(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            SizedBox(
+              height: MediaQuery.of(context).padding.top + 25,
             ),
-            child: BorderedText(
-              strokeWidth: 1.0,
-              strokeColor: Color(0xFF707070),
-              child: Text(
-                'Clock',
-                style: TextStyle(
-                  fontSize: 32,
-                  color: Color(0xFF806a6a),
-                  fontWeight: FontWeight.bold,
-                  letterSpacing: 2,
+            Container(
+              margin: const EdgeInsets.only(
+                left: 29,
+              ),
+              child: BorderedText(
+                strokeWidth: 1.0,
+                strokeColor: Color(0xFF707070),
+                child: Text(
+                  'Clock',
+                  style: TextStyle(
+                    fontSize: 32,
+                    color: Color(0xFF806a6a),
+                    fontWeight: FontWeight.bold,
+                    letterSpacing: 2,
+                  ),
                 ),
               ),
             ),
-          ),
-          SizedBox(
-            height: MediaQuery.of(context).size.height * 0.06,
-          ),
-          Transform.rotate(
-            angle: -pi / 2,
-            child: ElevationWidget(
-              height: 300,
-              width: 300,
-              paint: ClockPainter(),
+            SizedBox(
+              height: MediaQuery.of(context).size.height * 0.06,
+            ),
+            Transform.rotate(
+              angle: -pi / 2,
               child: ElevationWidget(
-                height: 150,
-                width: 150,
-                paint: SmallClockPainter(),
-                child: CustomPaint(
-                  painter: DrawClockHand(),
+                height: 300,
+                width: 300,
+                paint: ClockPainter(),
+                child: ElevationWidget(
+                  height: 150,
+                  width: 150,
+                  paint: SmallClockPainter(),
+                  child: CustomPaint(
+                    painter: DrawClockHand(),
+                  ),
                 ),
               ),
             ),
-          ),
-          SizedBox(
-            height: 20,
-          ),
-        ],
+            SizedBox(
+              height: 20,
+            ),
+            AlarmTile(0),
+            AlarmTile(1),
+            AlarmTile(2),
+          ],
+        ),
       ),
     );
   }

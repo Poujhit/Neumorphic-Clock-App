@@ -23,6 +23,9 @@ dependencies:
     sdk: flutter
   bordered_text: ^1.0.1
   intl: ^0.16.1
+  fluttertoast: ^7.1.5
+  timezone: ^0.5.9
+  flutter_native_timezone: ^1.0.4
   flutter_local_notifications: ^3.0.1+6
 
 
