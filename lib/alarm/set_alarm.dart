@@ -59,7 +59,7 @@ class SetAlarm {
     await flutterLocalNotificationsPlugin.zonedSchedule(
       id,
       'Alarm',
-      'Wake Up!!!!',
+      'Wake Up!!!',
       notifydate,
       platformChannelSpecifics,
       androidAllowWhileIdle: true,
