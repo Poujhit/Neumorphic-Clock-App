@@ -4,16 +4,23 @@ A Neumorphic Clock App made with Painting the Clock Design. This App also has Fe
 add upto 3 Alarms. **More Features Coming Soon**.
 
 ## App Design
+<p align = "middle">
+<img src = "/screenshots/homescreen.jpg" width="420" height = "800"></img>
+<img src = "/screenshots/choose_time.jpg" width="420" height = "800"></img>
+</p>
 
-<img align= "center" src = "/scrrenshots/choose_time.jpg"></img>
+<img src = "/screenshots/video.gif" width="420" height = "800"></img>
 
-This project is a starting point for a Flutter application.
 
-A few resources to get you started if this is your first Flutter project:
+## How to Install
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
+To try this app go to [this Link]() to download the APK of the app. Choose the Appropriate
+architecture version for your device.
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+Suggestions are Welcome. Any issues just open an issue. I reach you as soon as possible.
+
+## About Me
+- [My Works](https://github.com/Poujhit)
+- [linkedin](https://www.linkedin.com/in/poujhit-mu-41586a194/)
+
+Give a ⭐ if you liked the work!! :)
