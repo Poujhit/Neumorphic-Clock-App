@@ -1,8 +1,11 @@
 # Neumorphic Clock App
 
-A Neumorphic Clock App made with Painting all Clock Designs.
+A Neumorphic Clock App made with Painting the Clock Design. This App also has Features to 
+add upto 3 Alarms. **More Features Coming Soon**.
 
-## Getting Started
+## App Design
+
+<img align= "center" src = "/scrrenshots/choose_time.jpg"></img>
 
 This project is a starting point for a Flutter application.
 
