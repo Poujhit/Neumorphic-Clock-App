@@ -5,7 +5,7 @@ add upto 3 Alarms. **More Features Coming Soon**.
 
 ## App Design
 
-<img align= "center" src = "/screenshots/homescreen.jpg" width="420" height = "700"></img>
+<img align= "center" src = "/screenshots/homescreen.jpg" width="420" height = "800"></img>
 
 This project is a starting point for a Flutter application.
 
