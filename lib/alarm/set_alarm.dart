@@ -33,7 +33,7 @@ class SetAlarm {
       //     .subtract(Duration(seconds: tz.TZDateTime.now(tz.local).second))
       //     .add(Duration(days: 1, hours: hour, minutes: min));
       print(notifydate.toString());
-      print('isAfter true');
+      print('isAfter true(alarm time is after the now date)');
     } else {
       notifydate = tz.TZDateTime.now(tz.local)
           .subtract(Duration(seconds: tz.TZDateTime.now(tz.local).second))
