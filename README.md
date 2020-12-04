@@ -17,7 +17,7 @@ add upto 3 Alarms. **More Features Coming Soon**.
 To try this app go to [this Link](https://github.com/Poujhit/Neumorphic-Clock-App/releases/tag/v1.0.0) to download the APK of the app. Choose the Appropriate
 architecture version for your device.
 
-Suggestions are Welcome. Any issues just open an issue. I reach you as soon as possible.
+Suggestions are Welcome. Any issues just open an issue. I will reach you as soon as possible.
 
 ## About Me
 - [My Works](https://github.com/Poujhit)
