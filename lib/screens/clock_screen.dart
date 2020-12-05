@@ -71,7 +71,7 @@ class _ClockScreenState extends State<ClockScreen> {
             SizedBox(
               height: 20,
             ),
-            AlarmTile(0),
+            AlarmTile(100),
             AlarmTile(1),
             AlarmTile(2),
           ],

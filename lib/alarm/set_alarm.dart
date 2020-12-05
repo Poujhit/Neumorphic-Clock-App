@@ -41,12 +41,13 @@ class SetAlarm {
       print('isAfter:false');
     }
     var androidPlatformChannelSpecifics = AndroidNotificationDetails(
-      'alarm_notif',
-      'alarm_notif',
+      'alarm_notify',
+      'alarm_notify',
       'Channel for Alarm notification',
       icon: 'time',
       sound: RawResourceAndroidNotificationSound('alarm_ringtone'),
       largeIcon: DrawableResourceAndroidBitmap('time'),
+      playSound: true,
     );
     var iOSPlatformChannelSpecifics = IOSNotificationDetails(
       sound: 'alarm_ringtone.mp3',
