@@ -2,9 +2,28 @@ import 'package:flutter/material.dart';
 import 'package:flutter_native_timezone/flutter_native_timezone.dart';
 import 'package:timezone/data/latest.dart' as tz;
 import 'package:timezone/timezone.dart' as tz;
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 
 class SetAlarm {
+  static Future<void> setAlarmtoStorage({
+    int id,
+    TimeOfDay alarmTime,
+  }) async {
+    SharedPreferences pref = await SharedPreferences.getInstance();
+    pref.setStringList('$id', [alarmTime.hour.toString(), alarmTime.minute.toString()]);
+  }
+
+  static Future<TimeOfDay> getAlarmfromStorage({int id}) async {
+    SharedPreferences pref = await SharedPreferences.getInstance();
+    final hourAndMin = pref.getStringList('$id');
+    final time = TimeOfDay(
+      hour: int.parse(hourAndMin[0]),
+      minute: int.parse(hourAndMin[1]),
+    );
+    return time;
+  }
+
   static Future<void> cancelAlarm(int id) async {
     FlutterLocalNotificationsPlugin flutterLocalNotificationsPlugin = FlutterLocalNotificationsPlugin();
 
