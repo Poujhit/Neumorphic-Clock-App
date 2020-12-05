@@ -24,6 +24,20 @@ class SetAlarm {
     return time;
   }
 
+  static Future<void> setAlarmOnorOff({
+    bool value,
+    int id,
+  }) async {
+    SharedPreferences pref = await SharedPreferences.getInstance();
+    pref.setBool('${id * 10}', value);
+  }
+
+  static Future<bool> getAlarmOnorOff({int id}) async {
+    SharedPreferences pref = await SharedPreferences.getInstance();
+    final value = pref.getBool('${id * 10}');
+    return value;
+  }
+
   static Future<void> cancelAlarm(int id) async {
     FlutterLocalNotificationsPlugin flutterLocalNotificationsPlugin = FlutterLocalNotificationsPlugin();
 
