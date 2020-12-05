@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
-
-import './screens/clock_screen.dart';
+import 'package:neumorphic_clock_app/screens/home_screen.dart';
 
 final FlutterLocalNotificationsPlugin flutterLocalNotificationsPlugin = FlutterLocalNotificationsPlugin();
 
@@ -50,11 +49,11 @@ class MyApp extends StatelessWidget {
       title: 'Neumorphic Clock App',
       theme: ThemeData(
         primarySwatch: MaterialColor(0xFFb9abab, color),
-        accentColor: Colors.green,
+        accentColor: Color(0xFF707070),
         fontFamily: 'Pro',
       ),
       themeMode: ThemeMode.dark,
-      home: ClockScreen(),
+      home: HomeScreen(),
     );
   }
 }

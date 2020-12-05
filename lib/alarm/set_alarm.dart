@@ -29,12 +29,12 @@ class SetAlarm {
     int id,
   }) async {
     SharedPreferences pref = await SharedPreferences.getInstance();
-    pref.setBool('${id * 10}', value);
+    pref.setBool('${id * 10 + 100}', value);
   }
 
   static Future<bool> getAlarmOnorOff({int id}) async {
     SharedPreferences pref = await SharedPreferences.getInstance();
-    final value = pref.getBool('${id * 10}');
+    final value = pref.getBool('${id * 10 + 100}');
     return value;
   }
 

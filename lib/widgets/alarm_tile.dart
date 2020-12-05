@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
+
 import 'package:neumorphic_clock_app/alarm/set_alarm.dart';
 
 class AlarmTile extends StatefulWidget {
@@ -34,37 +35,84 @@ class _AlarmTileState extends State<AlarmTile> {
         child: ListTile(
           key: UniqueKey(),
           tileColor: Color(0xFFb9abab),
-          leading: Text(
-            _selectedTime.format(context),
-            style: TextStyle(
-              color: Color(0xFF806a6a),
-              fontWeight: FontWeight.bold,
-              letterSpacing: 1,
-              fontSize: 30,
-            ),
-            textAlign: TextAlign.center,
-          ),
-          trailing: Switch.adaptive(
-            key: UniqueKey(),
-            activeColor: Color(0xFF806a6a),
-            inactiveThumbColor: Color(0xFF806a6a),
-            value: isalarmOn,
-            onChanged: (value) async {
-              if (value) {
-                setState(() {
-                  isalarmOn = value;
-                });
-                await SetAlarm.setAlarm(_selectedTime, widget.id);
-                Fluttertoast.showToast(msg: 'Alarm Set On');
-              } else {
-                setState(() {
-                  isalarmOn = value;
-                });
-                await SetAlarm.cancelAlarm(widget.id);
-                Fluttertoast.showToast(msg: 'Alarm Set Off');
-              }
-            },
-          ),
+          leading: FutureBuilder<TimeOfDay>(
+              future: SetAlarm.getAlarmfromStorage(id: widget.id),
+              builder: (ctx, snapshot) {
+                if (snapshot.connectionState == ConnectionState.waiting) return CircularProgressIndicator();
+                if (snapshot.hasData)
+                  return Text(
+                    snapshot.data.format(context),
+                    style: TextStyle(
+                      color: Color(0xFF806a6a),
+                      fontWeight: FontWeight.bold,
+                      letterSpacing: 1,
+                      fontSize: 30,
+                    ),
+                    textAlign: TextAlign.center,
+                  );
+                return Text(
+                  _selectedTime.format(context),
+                  style: TextStyle(
+                    color: Color(0xFF806a6a),
+                    fontWeight: FontWeight.bold,
+                    letterSpacing: 1,
+                    fontSize: 30,
+                  ),
+                  textAlign: TextAlign.center,
+                );
+              }),
+          trailing: FutureBuilder<bool>(
+              future: SetAlarm.getAlarmOnorOff(id: widget.id),
+              builder: (context, snapshot) {
+                if (snapshot.connectionState == ConnectionState.waiting) return CircularProgressIndicator.adaptive();
+                if (snapshot.hasData)
+                  return Switch.adaptive(
+                    key: UniqueKey(),
+                    activeColor: Color(0xFF806a6a),
+                    inactiveThumbColor: Color(0xFF806a6a),
+                    value: snapshot.data,
+                    onChanged: (value) async {
+                      if (value) {
+                        setState(() {
+                          isalarmOn = value;
+                        });
+                        await SetAlarm.setAlarmOnorOff(id: widget.id, value: value);
+                        await SetAlarm.setAlarm(_selectedTime, widget.id);
+                        Fluttertoast.showToast(msg: 'Alarm Set On');
+                      } else {
+                        setState(() {
+                          isalarmOn = value;
+                        });
+                        await SetAlarm.setAlarmOnorOff(id: widget.id, value: value);
+                        await SetAlarm.cancelAlarm(widget.id);
+                        Fluttertoast.showToast(msg: 'Alarm Set Off');
+                      }
+                    },
+                  );
+                return Switch.adaptive(
+                  key: UniqueKey(),
+                  activeColor: Color(0xFF806a6a),
+                  inactiveThumbColor: Color(0xFF806a6a),
+                  value: isalarmOn,
+                  onChanged: (value) async {
+                    if (value) {
+                      setState(() {
+                        isalarmOn = value;
+                      });
+                      await SetAlarm.setAlarmOnorOff(id: widget.id, value: value);
+                      await SetAlarm.setAlarm(_selectedTime, widget.id);
+                      Fluttertoast.showToast(msg: 'Alarm Set On');
+                    } else {
+                      setState(() {
+                        isalarmOn = value;
+                      });
+                      await SetAlarm.setAlarmOnorOff(id: widget.id, value: value);
+                      await SetAlarm.cancelAlarm(widget.id);
+                      Fluttertoast.showToast(msg: 'Alarm Set Off');
+                    }
+                  },
+                );
+              }),
           onTap: () async {
             final newTime = await showTimePicker(
               initialTime: TimeOfDay.now(),
@@ -78,6 +126,11 @@ class _AlarmTileState extends State<AlarmTile> {
 
                 isalarmOn = true;
               });
+              await SetAlarm.setAlarmtoStorage(
+                id: widget.id,
+                alarmTime: newTime,
+              );
+              await SetAlarm.cancelAlarm(widget.id);
               await SetAlarm.setAlarm(_selectedTime, widget.id);
               Fluttertoast.showToast(msg: 'Alarm Set On');
             }
