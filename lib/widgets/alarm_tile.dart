@@ -77,15 +77,15 @@ class _AlarmTileState extends State<AlarmTile> {
                           isalarmOn = value;
                         });
                         await SetAlarm.setAlarmOnorOff(id: widget.id, value: value);
-                        await SetAlarm.setAlarm(_selectedTime, widget.id);
-                        Fluttertoast.showToast(msg: 'Alarm Set On');
+                        await SetAlarm.setAlarm(_selectedTime, widget.id, context);
+                        Fluttertoast.showToast(msg: 'Alarm On');
                       } else {
                         setState(() {
                           isalarmOn = value;
                         });
                         await SetAlarm.setAlarmOnorOff(id: widget.id, value: value);
                         await SetAlarm.cancelAlarm(widget.id);
-                        Fluttertoast.showToast(msg: 'Alarm Set Off');
+                        Fluttertoast.showToast(msg: 'Alarm Off');
                       }
                     },
                   );
@@ -100,15 +100,15 @@ class _AlarmTileState extends State<AlarmTile> {
                         isalarmOn = value;
                       });
                       await SetAlarm.setAlarmOnorOff(id: widget.id, value: value);
-                      await SetAlarm.setAlarm(_selectedTime, widget.id);
-                      Fluttertoast.showToast(msg: 'Alarm Set On');
+                      await SetAlarm.setAlarm(_selectedTime, widget.id, context);
+                      Fluttertoast.showToast(msg: 'Alarm On');
                     } else {
                       setState(() {
                         isalarmOn = value;
                       });
                       await SetAlarm.setAlarmOnorOff(id: widget.id, value: value);
                       await SetAlarm.cancelAlarm(widget.id);
-                      Fluttertoast.showToast(msg: 'Alarm Set Off');
+                      Fluttertoast.showToast(msg: 'Alarm Off');
                     }
                   },
                 );
@@ -121,6 +121,7 @@ class _AlarmTileState extends State<AlarmTile> {
             if (newTime == null)
               Fluttertoast.showToast(msg: 'Choose a Time!!');
             else {
+              await SetAlarm.setAlarmOnorOff(id: widget.id, value: true);
               setState(() {
                 _selectedTime = newTime;
 
@@ -131,8 +132,9 @@ class _AlarmTileState extends State<AlarmTile> {
                 alarmTime: newTime,
               );
               await SetAlarm.cancelAlarm(widget.id);
-              await SetAlarm.setAlarm(_selectedTime, widget.id);
-              Fluttertoast.showToast(msg: 'Alarm Set On');
+
+              await SetAlarm.setAlarm(_selectedTime, widget.id, context);
+              Fluttertoast.showToast(msg: 'Alarm On');
             }
           },
         ),
