@@ -1,22 +1,9 @@
     #this will work only if all api keys are made into version control
 on: push
-name: build and test flutter app
+name: Build and Test Flutter app for IOS and Android
 jobs:
   build:
-    name: Testing Build of Android
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v2
-    - uses: actions/setup-java@v1
-      with:
-        java-version: '12.x'
-    - uses: subosito/flutter-action@v1.4.0
-      with: 
-        channel: 'dev'
-    - run: flutter pub get
-    - run: flutter build apk --split-per-abi
-  build:
-    name: Testing Build for Ios
+    name: Testing Build for Ios and Android
     runs-on: macos-latest
     steps:
     - uses: actions/checkout@v2
@@ -27,4 +14,5 @@ jobs:
       with: 
         channel: 'dev'
     - run: flutter pub get
+    - run: flutter build apk --split-per-abi
     - run: flutter build ios --release
