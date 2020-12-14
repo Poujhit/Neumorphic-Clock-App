@@ -1,3 +1,11 @@
+## [v1.0.5] - 14 December 2020
+- Alarms are further optimised to work smoothly without battery drain.
+- **New** - **Stop Watch** is added. Users can also lap the timings.
+- **New** - Neumorphic bottom nav bar is added for navigation between clock and stopwatch.
+- Neumorphism designed in some places are improved.
+- App will always remain in Portrait mode even when the device is rotated landscape.
+- Some Critical runtime bugs are fixed.
+
 ## [v1.0.2] - 9 December 2020
 - Added Support for registering the alarms in the background.
 - **New** - App is now shown on the lockscreen if the app is running in the background and screen turned off.
