@@ -13,8 +13,8 @@ add upto 3 Alarms and a functionality of a StopWatch. **More Features Coming Soo
 <img src = "/screenshots/stopwatch2.jpg" width="320" height = "750"></img>
 </p>
 <p align = "middle">
-<img src = "/screenshots/video.gif" width="360" height = "750"></img>
-<img src = "/screenshots/video1.gif" width="360" height = "750"></img>
+<img src = "/screenshots/video.gif" width="320" height = "750"></img>
+<img src = "/screenshots/video1.gif" width="320" height = "750"></img>
 </p>
  
 ## How to Install
