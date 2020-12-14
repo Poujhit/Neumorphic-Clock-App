@@ -7,6 +7,7 @@ import 'package:neumorphic_clock_app/screens/home_screen.dart';
 final FlutterLocalNotificationsPlugin flutterLocalNotificationsPlugin = FlutterLocalNotificationsPlugin();
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+
   var initializationSettingsAndroid = AndroidInitializationSettings('time');
 
   var initializationSettingsIOS = IOSInitializationSettings(
@@ -25,6 +26,10 @@ void main() async {
   SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
     statusBarColor: Colors.transparent,
   ));
+  await SystemChrome.setPreferredOrientations([
+    DeviceOrientation.portraitUp,
+    DeviceOrientation.portraitDown,
+  ]);
   await AndroidAlarmManager.initialize();
   runApp(MyApp());
 }
