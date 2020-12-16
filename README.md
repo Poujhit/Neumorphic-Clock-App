@@ -1,5 +1,7 @@
 # Neumorphic Clock App
 
+![build and test flutter app](https://github.com/Poujhit/Neumorphic-Clock-App/workflows/build%20and%20test%20flutter%20app/badge.svg) **Build is failing because of an issue in a dependency.**
+
 A Neumorphic Clock App made with Painting the Clock Design. This App has Features to 
 add upto 3 Alarms and a functionality of a StopWatch. **More Features Coming Soon**.
 
