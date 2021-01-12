@@ -16,6 +16,7 @@ class _StopWatchScreenState extends State<StopWatchScreen> {
   int stopCheck = 0;
 
   List<String> _lapTimes = [];
+
   @override
   void dispose() async {
     super.dispose();
