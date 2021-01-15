@@ -1,13 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:neumorphic_clock_app/screens/clock_screen.dart';
 import 'package:neumorphic_clock_app/screens/stop_watch_screen.dart';
+import 'package:neumorphic_clock_app/screens/timer_screen.dart';
 import 'package:persistent_bottom_nav_bar/persistent-tab-view.dart';
 
 class HomeScreen extends StatelessWidget {
   final PersistentTabController _controller = PersistentTabController(initialIndex: 0);
 
   List<Widget> _buildScreens() {
-    return [ClockScreen(), StopWatchScreen()];
+    return [
+      ClockScreen(),
+      StopWatchScreen(),
+      TimerScreen(),
+    ];
   }
 
   List<PersistentBottomNavBarItem> _navBarsItems() {
@@ -21,6 +26,12 @@ class HomeScreen extends StatelessWidget {
       PersistentBottomNavBarItem(
         icon: Icon(Icons.watch, color: Colors.black45),
         title: ("StopWatch"),
+        activeColor: Color(0xFF707070),
+        inactiveColor: Color(0xFF707070),
+      ),
+      PersistentBottomNavBarItem(
+        icon: Icon(Icons.timer, color: Colors.black45),
+        title: ("Timer"),
         activeColor: Color(0xFF707070),
         inactiveColor: Color(0xFF707070),
       ),
@@ -39,7 +50,6 @@ class HomeScreen extends StatelessWidget {
       backgroundColor: Color(0xFFb9abab),
       handleAndroidBackButtonPress: true,
       resizeToAvoidBottomInset: true,
-
       stateManagement: true,
       neumorphicProperties: NeumorphicProperties(
         bevel: 15,
@@ -53,18 +63,16 @@ class HomeScreen extends StatelessWidget {
       popAllScreensOnTapOfSelectedTab: true,
       popActionScreens: PopActionScreensType.all,
       padding: NavBarPadding.only(bottom: 15),
-
       itemAnimationProperties: ItemAnimationProperties(
         duration: Duration(milliseconds: 200),
         curve: Curves.ease,
       ),
       screenTransitionAnimation: ScreenTransitionAnimation(
-        // Screen transition animation on change of selected tab.
         animateTabTransition: true,
         curve: Curves.ease,
         duration: Duration(milliseconds: 200),
       ),
-      navBarStyle: NavBarStyle.neumorphic, // Choose the nav bar style with this property.
+      navBarStyle: NavBarStyle.neumorphic,
     );
   }
 }
