@@ -1,3 +1,8 @@
+## [v1.0.6] - 15 January 2021
+- **New** - **Timer** is added. Users can set timer upto 12 hrs, 12 min and 12 secs. Later min and secs will be updated to 60 each due to an existing bug.  
+- **New** - Neumorphic bottom nav bar button is added for Timer.
+- Some Performance improvements throughout the app.
+
 ## [v1.0.5] - 14 December 2020
 - Alarms are further optimised to work smoothly without battery drain.
 - **New** - **Stop Watch** is added. Users can also lap the timings.
