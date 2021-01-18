@@ -1,3 +1,9 @@
+## [v1.0.7] - 18 January 2021
+- **New** - **Timer music** is added. Users can set timer and now a calm music plays in the background till the timer ends.
+- **Breaking Change** - Support for android SDK below 23 are depreciated now. **v1.0.7 and above will not work with devices which are below android SDK version 23**.
+- fix alignment issues in Timer page.
+- Smoother animations when switching pages in the app.
+
 ## [v1.0.6] - 15 January 2021
 - **New** - **Timer** is added. Users can set timer upto 12 hrs, 12 min and 12 secs. Later min and secs will be updated to 60 each due to an existing bug.  
 - **New** - Neumorphic bottom nav bar button is added for Timer.
