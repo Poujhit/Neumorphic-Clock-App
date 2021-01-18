@@ -1,5 +1,9 @@
-import 'package:bordered_text/bordered_text.dart';
+import 'dart:async';
+
+import 'package:audioplayer/audioplayer.dart';
 import 'package:flutter/material.dart';
+
+import 'package:bordered_text/bordered_text.dart';
 import 'package:circular_countdown_timer/circular_countdown_timer.dart';
 import 'package:flutter_neumorphic/flutter_neumorphic.dart';
 import 'package:fluttertoast/fluttertoast.dart';
@@ -12,6 +16,9 @@ class TimerScreen extends StatefulWidget {
 }
 
 class _TimerScreenState extends State<TimerScreen> {
+  AudioPlayer audioPlugin = AudioPlayer();
+  StreamSubscription<Duration> _audioPlayerStateSubscription;
+
   CountDownController countDownController;
   int hours = 0;
   int min = 0;
@@ -21,6 +28,12 @@ class _TimerScreenState extends State<TimerScreen> {
   void initState() {
     countDownController = CountDownController();
     super.initState();
+  }
+
+  @override
+  void dispose() {
+    _audioPlayerStateSubscription.cancel();
+    super.dispose();
   }
 
   @override
@@ -54,7 +67,7 @@ class _TimerScreenState extends State<TimerScreen> {
                 ),
               ),
               SizedBox(
-                height: MediaQuery.of(context).size.height * 0.06,
+                height: MediaQuery.of(context).size.height * 0.03,
               ),
               TimerWidget(
                 countDownController: countDownController,
@@ -121,7 +134,7 @@ class _TimerScreenState extends State<TimerScreen> {
                         step: 1,
                         initialValue: -1,
                         minValue: -1,
-                        maxValue: 12,
+                        maxValue: 60,
                         onChanged: (value) {
                           Fluttertoast.cancel();
                           Fluttertoast.showToast(msg: '$value min(s)');
@@ -169,7 +182,7 @@ class _TimerScreenState extends State<TimerScreen> {
                         step: 1,
                         initialValue: -1,
                         minValue: -1,
-                        maxValue: 12,
+                        maxValue: 60,
                         textMapper: (numberText) {
                           if (numberText == '-1')
                             return 'Scroll';
@@ -224,8 +237,16 @@ class _TimerScreenState extends State<TimerScreen> {
                       duration: Duration(milliseconds: 200),
                       onPressed: () {
                         setState(() {});
+                        var dur = Duration(hours: hours, minutes: min, seconds: sec).inSeconds;
                         countDownController.restart(
                             duration: Duration(hours: hours, minutes: min, seconds: sec).inSeconds);
+                        print(countDownController.getTime());
+                        audioPlugin.play(
+                            'https://download1074.mediafire.com/u1zqgp7fq6rg/ovak25qjlu7e9dq/Meditation+Music+%5BFull+Tracks%5D+Royalty+Free+Background+Music.mp3');
+                        _audioPlayerStateSubscription = audioPlugin.onAudioPositionChanged.listen((event) {
+                          print(event.inSeconds);
+                          if (event.inSeconds == dur) audioPlugin.stop();
+                        });
                       },
                       style: NeumorphicStyle(
                         color: Color(0xFFb9abab),
@@ -260,6 +281,8 @@ class _TimerScreenState extends State<TimerScreen> {
 
                         countDownController.restart(
                             duration: Duration(hours: hours, minutes: min, seconds: sec).inSeconds);
+
+                        audioPlugin.stop();
                       },
                       style: NeumorphicStyle(
                         color: Color(0xFFb9abab),
