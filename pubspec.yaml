@@ -29,6 +29,7 @@ dependencies:
   shared_preferences: ^0.5.12+4
   flutter_local_notifications: ^3.0.1+6
   stop_watch_timer: ^0.6.0+1
+  audioplayer: ^0.8.1
   flutter_neumorphic: ^3.0.3
   circular_countdown_timer: ^0.0.8
   persistent_bottom_nav_bar: ^3.1.0
