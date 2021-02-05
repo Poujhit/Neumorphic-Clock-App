@@ -1,3 +1,9 @@
+## [v2.0.0] - 05 January 2021
+- **New** - Performance improved. App is now Production ready.
+- Bug Fixes.
+- updated dependencies
+
+
 ## [v1.0.7] - 18 January 2021
 - **New** - **Timer music** is added. Users can set timer and now a calm music plays in the background till the timer ends.
 - **Breaking Change** - Support for android SDK below 23 are depreciated now. **v1.0.7 and above will not work with devices which are below android SDK version 23**.
