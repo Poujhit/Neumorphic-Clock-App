@@ -6,8 +6,7 @@ A Neumorphic Clock App made with Painting the Clock Design. This App has Feature
 set upto 3 Alarms and a functionality of a StopWatch and a timer.
 
 ## Update
-Now users can set timer and a calm music will play till the timer ends!!
-Check the Changelog of all the new updates [here](https://github.com/Poujhit/Neumorphic-Clock-App/blob/master/CHANGELOG.md).
+Check the Changelog of all the new updates [here](https://github.com/Poujhit/Neumorphic-Clock-App/blob/master/CHANGELOG.md). App is now production ready.
 
 ## App Design
 <p align = "middle">
@@ -24,7 +23,7 @@ Check the Changelog of all the new updates [here](https://github.com/Poujhit/Neu
  
 ## How to Install
 
-To try this app go to [this Link](https://github.com/Poujhit/Neumorphic-Clock-App/releases/tag/v1.0.7) to download the APK of the app. Choose the Appropriate
+To try this app go to [this Link](https://github.com/Poujhit/Neumorphic-Clock-App/releases/tag/v2.0.0) to download the APK of the app. Choose the Appropriate
 architecture version for your device.
 
 Suggestions are Welcome. Any issues just open an issue. I will reach you as soon as possible.
