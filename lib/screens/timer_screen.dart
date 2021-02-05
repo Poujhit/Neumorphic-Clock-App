@@ -6,7 +6,6 @@ import 'package:flutter/material.dart';
 import 'package:bordered_text/bordered_text.dart';
 import 'package:circular_countdown_timer/circular_countdown_timer.dart';
 import 'package:flutter_neumorphic/flutter_neumorphic.dart';
-import 'package:fluttertoast/fluttertoast.dart';
 import 'package:neumorphic_clock_app/widgets/timer_widget.dart';
 import 'package:numberpicker/numberpicker.dart';
 
@@ -88,8 +87,6 @@ class _TimerScreenState extends State<TimerScreen> {
                         minValue: -1,
                         maxValue: 12,
                         onChanged: (value) {
-                          Fluttertoast.cancel();
-                          Fluttertoast.showToast(msg: '$value hr(s)');
                           hours = value;
                         },
                         selectedTextStyle: TextStyle(
@@ -136,8 +133,6 @@ class _TimerScreenState extends State<TimerScreen> {
                         minValue: -1,
                         maxValue: 60,
                         onChanged: (value) {
-                          Fluttertoast.cancel();
-                          Fluttertoast.showToast(msg: '$value min(s)');
                           min = value;
                         },
                         selectedTextStyle: TextStyle(
@@ -190,8 +185,6 @@ class _TimerScreenState extends State<TimerScreen> {
                             return numberText;
                         },
                         onChanged: (value) {
-                          Fluttertoast.cancel();
-                          Fluttertoast.showToast(msg: '$value sec(s)');
                           sec = value;
                         },
                         selectedTextStyle: TextStyle(
@@ -237,15 +230,13 @@ class _TimerScreenState extends State<TimerScreen> {
                       duration: Duration(milliseconds: 200),
                       onPressed: () {
                         setState(() {});
-                        var dur = Duration(hours: hours, minutes: min, seconds: sec).inSeconds;
                         countDownController.restart(
                             duration: Duration(hours: hours, minutes: min, seconds: sec).inSeconds);
-                        print(countDownController.getTime());
                         audioPlugin.play(
                             'https://download1074.mediafire.com/u1zqgp7fq6rg/ovak25qjlu7e9dq/Meditation+Music+%5BFull+Tracks%5D+Royalty+Free+Background+Music.mp3');
                         _audioPlayerStateSubscription = audioPlugin.onAudioPositionChanged.listen((event) {
-                          print(event.inSeconds);
-                          if (event.inSeconds == dur) audioPlugin.stop();
+                          if (Duration(hours: hours, minutes: min, seconds: sec).inSeconds == Duration.zero.inSeconds)
+                            audioPlugin.stop();
                         });
                       },
                       style: NeumorphicStyle(
